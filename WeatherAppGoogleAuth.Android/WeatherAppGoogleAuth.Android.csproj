@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeatherAppGoogleAuth\WeatherAppGoogleAuth.csproj">
-      <Project>{3170ECCF-8E2C-4900-98C9-B0ECAD0FBE21}</Project>
+      <Project>{A2E7DBDD-75C7-4549-830D-16154511E609}</Project>
       <Name>WeatherAppGoogleAuth</Name>
     </ProjectReference>
   </ItemGroup>
