@@ -17,7 +17,6 @@ namespace WeatherAppGoogleAuth.ViewModels
     public class LoginViewModel : INotifyPropertyChanged
     {
         IGoogleClientManager _GoogleService = CrossGoogleClient.Current;
-        ReactiveExtensionsUtils _ReactiveExtensionsUtils { get; } = new ReactiveExtensionsUtils();
 
         /// <summary>
         /// Creates an Async Command.
@@ -35,10 +34,6 @@ namespace WeatherAppGoogleAuth.ViewModels
                     _GoogleService.Logout();
                 }
 
-                //Subscribe to the Google Login IObservable method
-                //_ReactiveExtensionsUtils.GoogleLoginObservable()
-                //.Subscribe(async google =>
-                //{
                 EventHandler<GoogleClientResultEventArgs<GoogleUser>> userLoginDelegate = null;
                 userLoginDelegate = async (object sender, GoogleClientResultEventArgs<GoogleUser> e) =>
                 {
