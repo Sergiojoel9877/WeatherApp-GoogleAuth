@@ -8,6 +8,10 @@ using Splat;
 using WeatherAppGoogleAuth.Helpers;
 using WeatherAppGoogleAuth.Models;
 using WeatherAppGoogleAuth.Services.Abstract;
+using Xamarin.Essentials;
+
+namespace WeatherAppGoogleAuth.ViewModels
+{
     public class WeatherPageViewModel : INotifyPropertyChanged
     {
         /// <summary>
