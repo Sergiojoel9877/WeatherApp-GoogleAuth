@@ -69,6 +69,7 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="FodyWeavers.xml" />
+    <None Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -135,11 +136,20 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Splat">
+      <Version>9.5.49</Version>
+    </PackageReference>
     <PackageReference Include="PropertyChanged.Fody">
       <Version>3.2.9</Version>
     </PackageReference>
     <PackageReference Include="Plugin.GoogleClient">
       <Version>2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.454</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
