@@ -13,9 +13,13 @@ namespace WeatherAppGoogleAuth
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            SetContainerInitializer();
+
             MainPage = new AppShell();
         }
+
+        //Set the initializer and subsecuentially it starts to register every service.
+        void SetContainerInitializer() => new ContainerInitializer().Initialize();
 
         protected override void OnStart()
         {
