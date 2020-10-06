@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:WeatherAppGoogleAuth.Helpers.Converters"
+    x:Class="WeatherAppGoogleAuth.Views.WeatherPage">
+    <ContentPage.Resources>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="TextColor" Value="Gray" />
+        </Style>    
+        <Style x:Key="labelResultStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="TextColor" Value="Blue" />
+            <Setter Property="Margin" Value="10,0,0,0" />
+        </Style>
+        <converters:LongToDateTimeConverter x:Key="longToDateTimeConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text="Location" 
+                       Style="{StaticResource labelStyle}" />
+                <Label Text="{Binding Weather.Name}" 
+                       Style="{StaticResource labelResultStyle}" />
+                
+                <Label Text="Temperature" 
+                       Style="{StaticResource labelStyle}" />
+                <Label Text="{Binding Weather.Main.Temp}"
+                       Style="{StaticResource labelResultStyle}" />
+                
+                <Label Text="Wind Speed"
+                       Style="{StaticResource labelStyle}" />
+                <Label Text="{Binding Weather.Wind.Speed}" 
+                       Style="{StaticResource labelResultStyle}" />
+                
+                <Label Text="Humidity" 
+                       Style="{StaticResource labelStyle}" />
+                <Label Text="{Binding Weather.Main.Humidity}" 
+                       Style="{StaticResource labelResultStyle}" />
+                
+                <Label Text="Visibility" 
+                       Style="{StaticResource labelStyle}" />
+                <Label Text="{Binding Weather.Visibility}" 
+                       Style="{StaticResource labelResultStyle}" />
+                
+                <Label Text="Time of Sunrise" 
+                       Style="{StaticResource labelStyle}" />
+                <Label Text="{Binding Weather.Sys.Sunrise, Converter={StaticResource longToDateTimeConverter}}" 
+                       Style="{StaticResource labelResultStyle}" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
