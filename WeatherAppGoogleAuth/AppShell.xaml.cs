@@ -11,9 +11,15 @@ namespace WeatherAppGoogleAuth
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            RegisterRoutes();
         }
 
+        /// <summary>
+        /// Register the given routes to the Shell routing manager
+        /// </summary>
+        void RegisterRoutes()
+        {
+            Routing.RegisterRoute(nameof(WeatherPage), typeof(WeatherPage));
+        }
     }
 }
