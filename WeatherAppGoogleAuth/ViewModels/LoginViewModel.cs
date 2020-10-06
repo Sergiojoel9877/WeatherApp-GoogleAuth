@@ -8,7 +8,6 @@ namespace WeatherAppGoogleAuth.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        public Command LoginCommand { get; }
 
         {
 
