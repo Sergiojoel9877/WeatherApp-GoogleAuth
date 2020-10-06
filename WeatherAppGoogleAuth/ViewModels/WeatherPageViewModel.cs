@@ -47,3 +47,47 @@ using WeatherAppGoogleAuth.Services.Abstract;
                 progresss.Dispose();
             }
         })));
+
+        /// <summary>
+        /// Gets the current location
+        /// </summary>
+        /// <returns>The real-time <see cref="Location" of the user/></returns>
+        async Task<Location> GetCurrentLocation()
+        {
+            try
+            {
+                var request = new GeolocationRequest(GeolocationAccuracy.Medium);
+                var location = await Geolocation.GetLocationAsync(request);
+
+                if (location != null)
+                {
+                    Debug.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    return location;
+                }
+                return null;
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Handle not supported on device exception
+                throw new FeatureNotSupportedException();
+            }
+            catch (FeatureNotEnabledException fneEx)
+            {
+                // Handle not enabled on device exception
+                throw new FeatureNotEnabledException();
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+                throw new PermissionException("Please give permissions to the app to be able to get your location");
+            }
+            catch (Exception ex)
+            {
+                // Unable to get location
+                return null;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
+}
