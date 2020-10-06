@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Plugin.GoogleClient;
+using Android.Content;
+using Acr.UserDialogs;
 
 namespace WeatherAppGoogleAuth.Droid
 {
@@ -21,10 +23,13 @@ namespace WeatherAppGoogleAuth.Droid
             base.OnCreate(savedInstanceState);
 
             GoogleClientManager.Initialize(this);
+            UserDialogs.Init(this);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
